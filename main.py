@@ -25,8 +25,6 @@ with mp_hands.Hands(static_image_mode=False, max_num_hands=1) as hands:
         image.flags.writeable = True
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
-        isRight = False
-
         if results.multi_hand_landmarks:
             for hand_landmarks in results.multi_handedness:
                 isRight = hand_landmarks.classification[0].label == 'Right'
